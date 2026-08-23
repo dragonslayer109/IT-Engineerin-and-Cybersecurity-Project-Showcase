@@ -1,4 +1,4 @@
-# 🖥️ Project Showcase — Home Lab
+# 🖥️ IT Engineering & Cybersecurity Project Showcase
 
 > A practical IT engineering lab focused on **Cybersecurity, Automation, Cloud, Infrastructure and Artificial Intelligence**.
 
