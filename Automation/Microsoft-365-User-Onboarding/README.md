@@ -1,208 +1,169 @@
-# IT Engineering & Cybersecurity Project Showcase
+# Microsoft 365 User Onboarding & Office Template Automation
 
-## Microsoft 365 User Onboarding & Office Template Automation
+> Part of the [IT Engineering & Cybersecurity Project Showcase](https://github.com/dragonslayer109/IT-Engineerin-and-Cybersecurity-Project-Showcase)
 
-### Overview
+## Overview
 
-This project demonstrates an end-to-end Microsoft 365 user onboarding automation workflow designed to reduce repetitive administrative work, improve consistency, and simplify the provisioning of new users.
+This project is an end-to-end Microsoft 365 user onboarding automation workflow, built to reduce repetitive administrative work, improve consistency, and simplify the provisioning of new users.
 
-The solution uses PowerShell, Microsoft 365, SharePoint, Microsoft Entra ID, and Microsoft Intune to automate several stages of the onboarding process, from assigning the appropriate access through to configuring Microsoft Office templates on the user's workstation.
+The solution uses **PowerShell**, **Microsoft 365**, **SharePoint**, **Microsoft Entra ID**, and **Microsoft Intune** to automate several stages of onboarding — from assigning the right access through to configuring Microsoft Office templates on the user's workstation.
 
-The project was developed from a real-world IT support and administration workflow and has been documented as a sanitised portfolio project to demonstrate practical experience with Microsoft 365 administration, automation, endpoint management, identity, and process improvement.
+It was developed from a real-world IT support and administration workflow and is documented here as a sanitised portfolio project, to demonstrate practical experience with Microsoft 365 administration, automation, endpoint management, identity, and process improvement.
 
 ---
 
 ## Objectives
-
-The primary objectives of the automation are to:
 
 - Reduce repetitive Microsoft 365 administration
 - Improve consistency when provisioning new users
 - Reduce the possibility of configuration errors
 - Automate SharePoint access through group membership
 - Ensure required SharePoint content is available to the user
-- Automatically deploy the required Microsoft Word and PowerPoint templates
-- Reduce the amount of technician time required for each onboarding
-- Create a repeatable and scalable onboarding process
+- Automatically deploy the required Word and PowerPoint templates
+- Reduce the amount of technician time required per onboarding
+- Create a repeatable, scalable onboarding process
 - Demonstrate practical PowerShell automation in a Microsoft 365 environment
 
 ---
 
 ## Solution Overview
 
-The onboarding workflow combines several Microsoft technologies into a single process:
-
-```text
+```
 New User
    │
    ▼
-PowerShell Onboarding
+PowerShell Onboarding Script
    │
-   ├── Microsoft 365 User
+   ▼
+Microsoft 365 Group Assignment
    │
-   └── Group Assignment
-          │
-          ▼
-   SharePoint Access
-          │
-          ▼
-   SharePoint Sync
-          │
-          ▼
-   User's PC
-          │
-          ▼
-   Microsoft Intune
-          │
-          ▼
-   Office Template Deployment
-          │
-          ├── Microsoft Word
-          │
-          └── Microsoft PowerPoint
-          │
-          ▼
-   Technician Validation
+   ▼
+Group-Based SharePoint Access
+   │
+   ▼
+SharePoint / OneDrive Sync to User's PC
+   │
+   ▼
+Microsoft Intune Deployment
+   │
+   ▼
+Office Template Configuration (Word & PowerPoint)
+   │
+   ▼
+Technician Validation
+```
 
-   The automation removes a number of repetitive configuration steps that would otherwise need to be performed manually for every new user.
+The automation removes a number of repetitive configuration steps that would otherwise need to be performed manually for every new user.
 
 ---
 
 ## Technologies Used
 
-| Technology           | Purpose                                        |
-| -------------------- | ---------------------------------------------- |
-| PowerShell           | User onboarding and automation                 |
-| Microsoft 365        | Identity, licensing and productivity services  |
-| Microsoft Entra ID   | Identity and group-based access                |
-| SharePoint Online    | Centralised storage and access to templates    |
-| Microsoft Intune     | Endpoint configuration and script deployment   |
-| Microsoft Word       | Corporate document templates                   |
-| Microsoft PowerPoint | Corporate presentation templates               |
-| OneDrive             | Synchronisation of user and SharePoint content |
+| Technology | Purpose |
+|---|---|
+| PowerShell | User onboarding and automation |
+| Microsoft 365 | Identity, licensing and productivity services |
+| Microsoft Entra ID | Identity and group-based access |
+| SharePoint Online | Centralised storage and access to templates |
+| Microsoft Intune | Endpoint configuration and script deployment |
+| Microsoft Word | Corporate document templates |
+| Microsoft PowerPoint | Corporate presentation templates |
+| OneDrive | Synchronisation of user and SharePoint content |
 
 ---
 
-## Automated Workflow
+## How It Works
 
-1. User Onboarding
+### 1. User Onboarding
+PowerShell automates the initial onboarding process and assigns the new user to the appropriate Microsoft 365 group — providing the required access without the technician manually configuring individual SharePoint permissions.
 
-PowerShell is used to automate the initial onboarding process and assign the new user to the appropriate Microsoft 365 group.
+### 2. Group-Based SharePoint Access
+The user's group membership grants access to the required SharePoint resources, creating a consistent access model and removing the need to configure permissions per user.
 
-The group provides the required access without requiring the technician to manually configure individual SharePoint permissions.
+### 3. SharePoint & OneDrive Synchronisation
+Once access is established, the required SharePoint content syncs to the user's workstation, giving them the centralised resources needed for their role.
 
-## 2. Group-Based SharePoint Access
+### 4. Intune Template Deployment
+Microsoft Intune deploys a PowerShell-based configuration script to the user's workstation, replacing the standard/blank Word and PowerPoint templates with the organisation's required templates stored in SharePoint — removing another manual step from onboarding.
 
-The user's group membership provides access to the required SharePoint resources.
+### 5. Technician Validation
+The repetitive configuration is automated, but a human validation stage remains. The technician still:
 
-This creates a more consistent access model and reduces the need for technicians to manually configure permissions for each individual user.
+- Completes account creation
+- Assigns licences
+- Signs the user into Windows, Entra ID and Microsoft 365
+- Completes initial Office configuration
+- Tests Word and PowerPoint
+- Confirms SharePoint and OneDrive functionality
+- Troubleshoots any unexpected issues
 
-## 3. SharePoint and OneDrive Synchronisation
+---
 
-Once access has been established, the required SharePoint content can be synchronised to the user's workstation.
+## Before vs. After
 
-This provides the user with access to the centralised resources required for their role.
+### Manual Process (Before Automation)
 
-# 4. Intune Template Deployment
+The complete onboarding workflow could involve:
 
-Microsoft Intune is used to deploy a PowerShell-based configuration script to the user's workstation.
+- Creating the user
+- Assigning licences
+- Configuring permissions
+- Setting up the workstation
+- Signing into Microsoft 365
+- Configuring OneDrive
+- Configuring SharePoint
+- Synchronising required content
+- Uploading and configuring templates
+- Testing the environment
+- Troubleshooting configuration issues
 
-The script replaces the relevant standard and blank Microsoft Word and PowerPoint templates with the organisation's required templates stored within SharePoint.
+For a medium-complexity Microsoft 365 environment, this is estimated at **~3 hours per user**, depending on the environment and issues encountered.
 
-This removes another manual configuration step from the onboarding process.
+### Automated Process (After Automation)
 
-5. Validation
+| Remaining Task | Typical Time |
+|---|---|
+| Create user account | 5–10 min |
+| Assign licences | 5–10 min |
+| Windows / Entra ID / M365 sign-in & initial setup | 5–10 min |
+| First-time Office / M365 setup | 1–5 min |
+| Test Word / PowerPoint / SharePoint / OneDrive | 1–5 min |
+| Troubleshooting / unexpected issues | 5–10+ min |
+| **Estimated remaining hands-on time** | **~35–40 min** |
 
-Although the repetitive configuration has been automated, the technician still performs final validation.
+Using the midpoint of these estimates, remaining technician involvement is approximately **36 minutes per user**.
 
-The remaining process includes:
+### Estimated Impact
 
-Completing the required account creation
-Assigning licences
-Signing into Windows, Entra ID and Microsoft 365
-Completing initial Office configuration
-Testing Word and PowerPoint
-Confirming SharePoint and OneDrive functionality
-Troubleshooting unexpected issues
+| | Before | After |
+|---|---|---|
+| Time per user | ~3 hours | ~35–40 min |
 
-This approach maintains a human validation stage while removing much of the repetitive provisioning work.
+**Estimated time saved: ~2 hours 20–25 minutes per user (~78–81% reduction in hands-on onboarding time).**
 
-Before vs After
+> These figures are estimates based on the workflow described above and should be validated against actual onboarding measurements once sufficient production data is available.
 
-One of the primary benefits of the project is the reduction in hands-on technician time.
+---
 
-Manual Process
+## Business Value
 
-Before automation, the complete onboarding workflow could involve:
+**Reduced technician time** — a significant share of repetitive onboarding work runs automatically, freeing technicians for higher-value support and engineering tasks.
 
-Creating the user
-Assigning licences
-Configuring permissions
-Setting up the workstation
-Signing into Microsoft 365
-Configuring OneDrive
-Configuring SharePoint
-Synchronising required content
-Uploading and configuring templates
-Testing the environment
-Troubleshooting configuration issues
+**Improved consistency** — a repeatable, automated process reduces the risk of users ending up with different configurations due to manual variation.
 
-For a medium-complexity Microsoft 365 environment, this workflow is estimated at approximately 3 hours per user, depending on the environment and issues encountered.
+**Fewer configuration errors** — group-based access and scripted configuration cut down on manual permission and setup steps.
 
-Automated Process
+**Faster user readiness** — users reach a usable, consistently configured Microsoft 365 environment with less technician intervention.
 
-After implementing the automation, the remaining technician work is approximately:
+**Scalability** — the workflow can be reused as onboarding volume grows, without a proportional increase in manual administrative effort.
 
-Remaining Task	Typical Time
-Create user account	5–10 min
-Assign licences	5–10 min
-Windows/Entra/M365 sign-in & initial setup	5–10 min
-First-time Office/M365 setup	1–5 min
-Test Word/PowerPoint/SharePoint/OneDrive	1–5 min
-Troubleshooting / unexpected issues	5–10+ min
-Estimated remaining hands-on time	~35–40 min
+### Example Time Savings at Scale
 
-Using the midpoint of these estimates, the remaining technician involvement is approximately 36 minutes per user.
+| Users | Estimated Manual Time | Estimated Post-Automation Time | Estimated Time Saved |
+|---|---|---|---|
+| 25 | 75 hrs | ~15 hrs | ~60 hrs |
+| 50 | 150 hrs | ~30 hrs | ~120 hrs |
+| 100 | 300 hrs | ~60 hrs | ~240 hrs |
+| 200 | 600 hrs | ~120 hrs | ~480 hrs |
 
-Estimated Impact
-
-Using approximately 3 hours before automation and 35–40 minutes after automation:
-
-Estimated time saved: approximately 2 hours 20 minutes – 2 hours 25 minutes per user.
-
-This represents an estimated 78–81% reduction in hands-on onboarding time.
-
-These figures are estimates based on the workflow and should be validated against actual onboarding measurements when sufficient production data is available.
-
-Business Value
-
-The automation provides several operational benefits.
-
-Reduced Technician Time
-
-A significant portion of repetitive onboarding work is performed automatically, allowing technicians to spend more time on higher-value support and engineering tasks.
-
-Improved Consistency
-
-Using a repeatable automated process reduces the likelihood of users receiving different configurations due to manual variations.
-
-Reduced Configuration Errors
-
-Group-based access and scripted configuration reduce the number of manual permission and configuration steps.
-
-Faster User Readiness
-
-Users can reach a usable and consistently configured Microsoft 365 environment with less technician intervention.
-
-Scalability
-
-The automated workflow can be reused as the number of onboardings increases without requiring a proportional increase in manual administrative effort.
-
-Example Time Savings
-Users	Estimated Manual Time	Estimated Post-Automation Time	Estimated Time Saved
-25	75 hrs	~15 hrs	~60 hrs
-50	150 hrs	~30 hrs	~120 hrs
-100	300 hrs	~60 hrs	~240 hrs
-200	600 hrs	~120 hrs	~480 hrs
-
-These figures are illustrative and are based on the estimated 3-hour manual workflow and approximately 36-minute post-automation workflow.
+> Illustrative figures, based on the estimated ~3-hour manual workflow and ~36-minute post-automation workflow above.
