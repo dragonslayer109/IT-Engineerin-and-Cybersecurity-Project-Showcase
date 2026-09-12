@@ -66,36 +66,44 @@ PowerShell Onboarding
 
    The automation removes a number of repetitive configuration steps that would otherwise need to be performed manually for every new user.
 
-Technologies Used
-Technology	Purpose
-PowerShell	User onboarding and automation
-Microsoft 365	Identity, licensing and productivity services
-Microsoft Entra ID	Identity and group-based access
-SharePoint Online	Centralised storage and access to templates
-Microsoft Intune	Endpoint configuration and script deployment
-Microsoft Word	Corporate document templates
-Microsoft PowerPoint	Corporate presentation templates
-OneDrive	Synchronisation of user and SharePoint content
-Automated Workflow
+---
+
+## Technologies Used
+
+| Technology           | Purpose                                        |
+| -------------------- | ---------------------------------------------- |
+| PowerShell           | User onboarding and automation                 |
+| Microsoft 365        | Identity, licensing and productivity services  |
+| Microsoft Entra ID   | Identity and group-based access                |
+| SharePoint Online    | Centralised storage and access to templates    |
+| Microsoft Intune     | Endpoint configuration and script deployment   |
+| Microsoft Word       | Corporate document templates                   |
+| Microsoft PowerPoint | Corporate presentation templates               |
+| OneDrive             | Synchronisation of user and SharePoint content |
+
+---
+
+## Automated Workflow
+
 1. User Onboarding
 
 PowerShell is used to automate the initial onboarding process and assign the new user to the appropriate Microsoft 365 group.
 
 The group provides the required access without requiring the technician to manually configure individual SharePoint permissions.
 
-2. Group-Based SharePoint Access
+## 2. Group-Based SharePoint Access
 
 The user's group membership provides access to the required SharePoint resources.
 
 This creates a more consistent access model and reduces the need for technicians to manually configure permissions for each individual user.
 
-3. SharePoint and OneDrive Synchronisation
+## 3. SharePoint and OneDrive Synchronisation
 
 Once access has been established, the required SharePoint content can be synchronised to the user's workstation.
 
 This provides the user with access to the centralised resources required for their role.
 
-4. Intune Template Deployment
+# 4. Intune Template Deployment
 
 Microsoft Intune is used to deploy a PowerShell-based configuration script to the user's workstation.
 
